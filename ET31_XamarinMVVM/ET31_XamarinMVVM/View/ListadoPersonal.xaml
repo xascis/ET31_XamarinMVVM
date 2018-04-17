@@ -2,22 +2,25 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ET31_XamarinMVVM.View.ListadoPersonal"
-             xmlns:local="clr-namespace:ET31_XamarinMVVM.View">
+             xmlns:local="clr-namespace:ET31_XamarinMVVM.View"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <StackLayout Spacing="0">
-            <Image x:Name="imagenComun" Source="{local:ImageResourceExtension ET31_XamarinMVVM.Assets.BannerXam.jpg}"/>
+            <Image x:Name="imagenPlataforma"/>
+            <Image x:Name="imagenComun" />
+            <!--<Image x:Name="imagenComun" Source="{local:ImageResourceExtension ET31_XamarinMVVM.Assets.BannerXam.jpg}"/>-->
             <!--<Image x:Name="imagenComun"/>-->
-            <Image x:Name="imagenPlataforma"></Image>
             <Button Text="Sincroniza Lista" Command="{Binding RecuperaListado}" />
             <ActivityIndicator IsRunning="{Binding EstaOcupado}" IsVisible="{Binding EstaOcupado}"/>
-            <ListView x:Name="ListadoView" ItemsSource="{Binding ListadoPersonal}">
+            <ListView x:Name="ListadoView" ItemsSource="{Binding ListadoPersonal}" RowHeight="100">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ContentView Padding="5">
-                                <Frame OutlineColor="Aquamarine" Padding="10">
+                                <Frame OutlineColor="Orange" Padding="10">
                                     <StackLayout Orientation="Horizontal">
-                                        <Image Source="{Binding Avatar}" WidthRequest="50" HeightRequest="50"/>
+                                        <Image Source="{Binding Avatar}" WidthRequest="70" HeightRequest="70"/>
                                         <StackLayout>
                                             <Label Text="{Binding Name}" FontSize="22" VerticalOptions="StartAndExpand"/>
                                             <Label Text="{Binding Title}" FontSize="16" VerticalOptions="CenterAndExpand"/>

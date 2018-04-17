@@ -13,7 +13,7 @@ namespace ET31_XamarinMVVM
 		{
 			InitializeComponent();
 
-			MainPage = new ET31_XamarinMVVM.View.ListadoPersonal();
+			MainPage = new ET31_XamarinMVVM.View.ListadoPersonal(); // carga la vista
 		}
 
 		protected override void OnStart ()

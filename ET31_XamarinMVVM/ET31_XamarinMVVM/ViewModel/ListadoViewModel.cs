@@ -23,7 +23,9 @@ namespace ET31_XamarinMVVM.ViewModel
 
         public ListadoViewModel()
         {
-            RecuperaListado = new Command(async () => await GetLista(), () => !EstaOcupado);
+            RecuperaListado = new Command(
+                async () => await GetLista(), 
+                () => !EstaOcupado);
 
             ListadoPersonal = new ObservableCollection<Listado>();
         }
@@ -54,7 +56,6 @@ namespace ET31_XamarinMVVM.ViewModel
                 // Peticion del listado
 
                 // Usando Azure
-
                 var servicio = DependencyService.Get<ServicioAzure>();
                 var items = await servicio.GetListado();
                 ListadoPersonal.Clear();

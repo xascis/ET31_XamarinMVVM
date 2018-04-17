@@ -12,20 +12,20 @@ using System.Reflection;
 
 namespace ET31_XamarinMVVM.View
 {
-    [ContentProperty("Source")]
-    public class ImageResourceExtension : IMarkupExtension
-    {
-        public string Source { get; set; }
-        public object ProvideValue(IServiceProvider serviceProvider)
-        {
-            if (Source == null) return null;
-            string prefijo = Device.OnPlatform<string>("iOS.Resources", "Android.Assets", "UWP.Assets");
-            string sufijo = Device.OnPlatform<string>("iOS.jpg", "And.jpg", "Win.jpg");
-            string nombre = "ET31_XamarinMVVM." + prefijo + "." + Source + sufijo;
+    //[ContentProperty("Source")]
+    //public class ImageResourceExtension : IMarkupExtension
+    //{
+    //    public string Source { get; set; }
+    //    public object ProvideValue(IServiceProvider serviceProvider)
+    //    {
+    //        if (Source == null) return null;
+    //        string prefijo = Device.OnPlatform<string>("iOS.Resources", "Android.Assets", "UWP.Assets");
+    //        string sufijo = Device.OnPlatform<string>("iOS.jpg", "And.jpg", "Win.jpg");
+    //        string nombre = "ET31_XamarinMVVM." + prefijo + "." + Source + sufijo;
           
-            return ImageSource.FromResource(Source, Assembly.GetExecutingAssembly());
-        }
-    }
+    //        return ImageSource.FromResource(Source, Assembly.GetExecutingAssembly());
+    //    }
+    //}
 
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListadoPersonal : ContentPage
@@ -40,8 +40,8 @@ namespace ET31_XamarinMVVM.View
 
             ListadoView.ItemSelected += ListadoView_ItemSelected;
 
-            //imagenComun.Source = ImageSource.FromResource("ET31_XamarinMVVM.Assets.BannerXam.jpg",
-            //    Assembly.GetExecutingAssembly()); // solo para W10 Fall Creators
+            imagenComun.Source = ImageSource.FromResource("ET31_XamarinMVVM.Assets.BannerXam.jpg",
+                Assembly.GetExecutingAssembly()); // solo para W10 Fall Creators
 
             //string extension = Device.OnPlatform<string>(
             //    "iOS.Resources.BanneriOS", 
