@@ -3,12 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ET31_XamarinMVVM.View.ListadoPersonal"
              xmlns:local="clr-namespace:ET31_XamarinMVVM.View"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true">
-    <ContentPage.Content>
+             Title="Listado Personal">
+    <Frame>
         <StackLayout Spacing="0">
             <Image x:Name="imagenPlataforma"/>
-            <Image x:Name="imagenComun" />
+            <!--<Image x:Name="imagenComun" />-->
             <!--<Image x:Name="imagenComun" Source="{local:ImageResourceExtension ET31_XamarinMVVM.Assets.BannerXam.jpg}"/>-->
             <!--<Image x:Name="imagenComun"/>-->
             <Button Text="Sincroniza Lista" Command="{Binding RecuperaListado}" />
@@ -34,5 +33,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-    </ContentPage.Content>
+    </Frame>
 </ContentPage>

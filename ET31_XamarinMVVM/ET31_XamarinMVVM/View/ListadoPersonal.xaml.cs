@@ -30,18 +30,22 @@ namespace ET31_XamarinMVVM.View
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListadoPersonal : ContentPage
 	{
-        ListadoViewModel listadoViewModel;
+        public ListadoViewModel listadoViewModel;
+        public ListView listView;
 
         public ListadoPersonal ()
 		{
 			InitializeComponent ();
+
             listadoViewModel = new ListadoViewModel();
             BindingContext = listadoViewModel;
 
-            ListadoView.ItemSelected += ListadoView_ItemSelected;
+            listView = ListadoView;
 
-            imagenComun.Source = ImageSource.FromResource("ET31_XamarinMVVM.Assets.BannerXam.jpg",
-                Assembly.GetExecutingAssembly()); // solo para W10 Fall Creators
+            //ListadoView.ItemSelected += ListadoView_ItemSelected;
+
+            //imagenComun.Source = ImageSource.FromResource("ET31_XamarinMVVM.Assets.BannerXam.jpg",
+                //Assembly.GetExecutingAssembly()); // solo para W10 Fall Creators
 
             //string extension = Device.OnPlatform<string>(
             //    "iOS.Resources.BanneriOS", 
@@ -67,15 +71,15 @@ namespace ET31_XamarinMVVM.View
 
         }
 
-        private async void ListadoView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            Listado persona = e.SelectedItem as Listado;
-            if (persona != null)
-            {
-                PaginaDetalle paginaDetalle = new PaginaDetalle(persona, listadoViewModel);
-                await Navigation.PushModalAsync(paginaDetalle);
-                ListadoView.SelectedItem = null;
-            }
-        }
+        //private async void ListadoView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    Listado persona = e.SelectedItem as Listado;
+        //    if (persona != null)
+        //    {
+        //        PaginaDetalle paginaDetalle = new PaginaDetalle(persona, listadoViewModel);
+        //        await Navigation.PushModalAsync(paginaDetalle);
+        //        ListadoView.SelectedItem = null;
+        //    }
+        //}
 	}
 }

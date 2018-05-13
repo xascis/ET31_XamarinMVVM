@@ -18,6 +18,17 @@ namespace ET31_XamarinMVVM.View
         Listado persona;
         ListadoViewModel listadoViewModel;
 
+        public PaginaDetalle ()
+        {
+            InitializeComponent();
+
+            persona = null;
+            listadoViewModel = null;
+
+            BotonHablar.IsEnabled = false;
+            BotonWeb.IsEnabled = false;
+            BotonGuardar.IsEnabled = false;
+        }
 		public PaginaDetalle (Listado p, ListadoViewModel viewModel)
 		{
 			InitializeComponent ();

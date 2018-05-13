@@ -1,11 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ET31_XamarinMVVM"
-             x:Class="ET31_XamarinMVVM.MainPage">
+             x:Class="ET31_XamarinMVVM.MainPage"
+                  Title="Pagina Principal"
+                  MasterBehavior="Popover">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
-
-</ContentPage>
+    <MasterDetailPage.Master>
+        <local:View.ListadoPersonal x:Name="MasterPage"/>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <local:View.PaginaDetalle />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>
